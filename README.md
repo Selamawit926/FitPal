@@ -25,6 +25,7 @@ npm start
 
 ## API Routes
 - /api/v1/   - get all
+- /api/v1/challenge
 
 ## Features
 ### The app provides the following features:

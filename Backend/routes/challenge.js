@@ -1,4 +1,5 @@
 const express = require("express");
+
 const router = express.Router();
 
 const { addChallenge,
@@ -9,16 +10,14 @@ const { addChallenge,
     
     } = require("../controllers/challenge");
 
-const { addFood, getFood, getFoodById } = require("../controllers/food");
 
-router.post("/addChallenge", addChallenge);
-router.get("/getChallenge/:id", getChallenges);
+
+router.post("/", addChallenge);
+router.get("/:id", getChallenges);
 router.get("/getJoinedChallenge/:id",getJoinedChallenges);
-router.put("/updateChallenge/:id",updateChallenge);
-router.delete("/deleteChallenge/:id",deleteChallenge);
+router.put("/:id",updateChallenge);
+router.delete("/:id",deleteChallenge);
 
-router.post("/addFood", addFood);
-router.get("/getFood", getFood);
-router.get("/getFoodById/:id", getFoodById);
+
 
 module.exports = router;

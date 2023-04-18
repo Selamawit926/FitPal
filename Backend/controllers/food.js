@@ -6,7 +6,10 @@ exports.getFood = (req, res) => {
     Food
         .find()
         .then((food) => {
-            return res.status(200).json(food);
+           
+            return res.status(200).json({
+                data:{food}
+            });
         })
         .catch((err) => {
             return res.json(
@@ -18,7 +21,14 @@ exports.getFoodById = (req, res) => {
     Food
         .findById(req.params.id)
         .then((food) => {
-            return res.status(200).json(food);
+            if (!food) {
+                return res.status(404).json({
+                    message: `Food not found.`
+                });
+            }
+            return res.status(200).json({
+                data: {food}
+            });
         })
         .catch((err) => {
             return res.json(
@@ -35,7 +45,7 @@ exports.addFood = (req, res) => {
         .save()
         .then((food) => {
             return res.status(201).json({
-                body: food,
+                data: {food},
                 message: `Added food successfully`
             });
         })

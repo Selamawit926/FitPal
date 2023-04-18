@@ -15,7 +15,7 @@ const foodSchema = new schema(
       required: false,
     },
     calories: {
-      type: String,
+      type: Number,
       required: true,
     },
   

@@ -35,7 +35,9 @@ exports.getChallenges = (req,res) => {
     Challenge
         .findById(req.params.id)
         .then((challenges) => {
-            return res.status(200).json(challenges);
+            return res.status(200).json({
+                data: {challenges}
+            });
         })
         .catch((err) => {
             return res.json(
@@ -48,7 +50,9 @@ exports.getJoinedChallenges = (req,res) => {
     joinedChallenges
         .findById(req.params.id)
         .then((challenges)=>{
-            return res.status(200).json(challenges);
+            return res.status(200).json({
+                data:{challenges}
+            });
         })
         .catch((err) => {
             return res.json(

@@ -15,7 +15,19 @@ const joinedChallengesSchema = new schema(
       required: true,
       ref: "user"
     },
+    isActive: {
+      type: Boolean,
+      default: true
+    },
+    
   },
+  {
+    writeConcern: {
+      w: "majority",
+      j: true,
+    },
+    timestamps: true,
+  }
 );
 
 module.exports = mongoose.model("joined_challenges", joinedChallengesSchema);

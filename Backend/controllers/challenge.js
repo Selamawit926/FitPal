@@ -8,6 +8,9 @@ exports.addChallenge = (req, res) => {
         title: req.body.title,
         userID: req.params.id,
         duration: req.params.duration,
+        exercise_id: req.body.exercise_id,
+        exercise_name: req.body.exercise_name,
+        intensity: req.body.intensity,
         startTime: req.params.startTime,
         endTime: req.params.endTime,
         image: req.body.image,
@@ -32,7 +35,9 @@ exports.getChallenges = (req,res) => {
     Challenge
         .findById(req.params.id)
         .then((challenges) => {
-            return res.status(200).json(challenges);
+            return res.status(200).json({
+                data: {challenges}
+            });
         })
         .catch((err) => {
             return res.json(
@@ -45,7 +50,9 @@ exports.getJoinedChallenges = (req,res) => {
     joinedChallenges
         .findById(req.params.id)
         .then((challenges)=>{
-            return res.status(200).json(challenges);
+            return res.status(200).json({
+                data:{challenges}
+            });
         })
         .catch((err) => {
             return res.json(

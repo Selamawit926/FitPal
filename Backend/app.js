@@ -11,13 +11,19 @@ dotenv.config();
 const DB_URI = process.env.MONGO_URI ;
 
 const challengeRouter = require("./routes/challenge");
+const userRouter = require("./routes/user");
+const foodRouter = require("./routes/food");
+
 
 const app = express();
 
 dotenv.config();
 
 app.use(express.json());
-app.use("/api/challenge", challengeRouter);
+
+app.use("/api/v1/challenge", challengeRouter);
+app.use("/api/v1/user", userRouter);
+app.use("/api/v1/food", foodRouter);
 
 mongoose
   .connect(DB_URI, {

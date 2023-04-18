@@ -8,7 +8,7 @@ const userSchema = new schema(
     name: {
       type: String,
       required: true,
-      unique: true 
+     
     },
     image: {
       type: String,
@@ -26,10 +26,19 @@ const userSchema = new schema(
       type: Number,
       required: false
     },
+    dateOfBirth: {
+      type: Date,
+      required: true
+    },
     location: {
       type: String,
       required: false
-    }
+    },
+    email: {
+      type: String,
+      required: true,
+      unique: true
+    },
   },
 );
 

@@ -26,9 +26,14 @@ const challengeSchema = new schema(
       type: Date,
       required: true
     },
-    endTIme: {
+    endTime: {
       type: Date,
       required: true
+    },
+    completedUsers: {
+      type: Number,
+      required: false,
+      default: 0
     }
   },
 );

@@ -1,9 +1,9 @@
-import challenge from "../models/challenge";
+
 
 const Challenge = require("../models/challenge");
 const joinedChallenges = require("../models/joined_challenges");
 
-export const addChallenge = (req, res) => {
+exports.addChallenge = (req, res) => {
     new Challenge({
         title: req.body.title,
         userID: req.params.id,
@@ -28,7 +28,7 @@ export const addChallenge = (req, res) => {
         });
 }
 
-export const getChallenges = (req,res) => {
+exports.getChallenges = (req,res) => {
     Challenge
         .findById(req.params.id)
         .then((challenges) => {
@@ -41,7 +41,7 @@ export const getChallenges = (req,res) => {
         });
 }
 
-export const getJoinedChallenges = (req,res) => {
+exports.getJoinedChallenges = (req,res) => {
     joinedChallenges
         .findById(req.params.id)
         .then((challenges)=>{
@@ -54,7 +54,7 @@ export const getJoinedChallenges = (req,res) => {
         });
 }
 
-export const deleteChallenge = (req, res) => {
+exports.deleteChallenge = (req, res) => {
     Challenge
         .findByIdAndDelete(req.params.id)
         .then((challenge) => {
@@ -71,7 +71,7 @@ export const deleteChallenge = (req, res) => {
         });
 }
 
-export const updateChallenge = function (req, res) {
+exports.updateChallenge = function (req, res) {
     if (!req.body) {
         return res.status(400).send({
             message: "Data to update can not be empty!"

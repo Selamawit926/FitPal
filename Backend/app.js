@@ -1,9 +1,17 @@
 const express = require("express");
+
+
+// Mongoose
 const mongoose = require("mongoose");
-const dotenv = require("dotenv");
+// Dotenv
+const dotenv = require("dotenv")
+
+dotenv.config();
+
+const DB_URI = process.env.MONGO_URI ;
+
 const challengeRouter = require("./routes/challenge");
 
-const DB_URI = process.env.MONGO_URI || "mongodb://localhost:27017/";
 const app = express();
 
 dotenv.config();
@@ -14,9 +22,9 @@ app.use("/api/challenge", challengeRouter);
 mongoose
   .connect(DB_URI, {
     useNewUrlParser: true,
-    useUnifiedTopology: true,
-    useCreateIndex: true,
-    useFindAndModify: true,
+    // useUnifiedTopology: true,
+    // useCreateIndex: true,
+    // useFindAndModify: true,
   })
   .then(() =>
     app.listen(3000, () => {

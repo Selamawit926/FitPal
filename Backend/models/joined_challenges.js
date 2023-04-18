@@ -1,5 +1,4 @@
 const mongoose = require("mongoose");
-const mongoose_fuzzy_searching = require("custom-mongoose-fuzzy-searching");
 const schema = mongoose.Schema;
 
 const joinedChallengesSchema = new schema(

@@ -1,5 +1,5 @@
 const mongoose = require("mongoose");
-const mongoose_fuzzy_searching = require("custom-mongoose-fuzzy-searching");
+
 const schema = mongoose.Schema;
 
 const workoutSchema = new schema(
@@ -20,5 +20,5 @@ const workoutSchema = new schema(
   },
 );
 
-workoutSchema.plugin(mongoose_fuzzy_searching,{fields:['name']});
+
 module.exports = mongoose.model("workout", workoutSchema);

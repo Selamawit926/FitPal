@@ -16,7 +16,10 @@ https://github.com/Selamawit926/FitPal.git
 2. Install the dependencies
 
 ```
-npm install 
+Clone the repository to your local machine.
+Install the required dependencies using npm install.
+Create a .env file based on the .env.example file and set the required environment variables.
+Start the server using npm start.
 ```
 3. Start the app
 ```

@@ -1,7 +1,7 @@
-const router = require("./routes/main");
 const express = require("express");
 const mongoose = require("mongoose");
 const dotenv = require("dotenv");
+const challengeRouter = require("./routes/challenge");
 
 const DB_URI = process.env.MONGO_URI || "mongodb://localhost:27017/";
 const app = express();
@@ -9,7 +9,7 @@ const app = express();
 dotenv.config();
 
 app.use(express.json());
-app.use("/", router);
+app.use("/api/challenge", challengeRouter);
 
 mongoose
   .connect(DB_URI, {

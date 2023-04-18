@@ -11,8 +11,9 @@ const challengeSchema = new schema(
       required: true,
     },
     userID: {
-      type: String,
+      type: mongoose.Types.ObjectId,
       required: true,
+      ref: "user"
     },
     description: {
       type: String,

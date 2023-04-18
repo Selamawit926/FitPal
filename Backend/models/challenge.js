@@ -15,6 +15,17 @@ const challengeSchema = new schema(
       required: true,
       ref: "user"
     },
+    exercise_id: {
+      type: String,
+    },
+    exercise_name: {
+      type: String,
+      required: true,
+    },
+    intensity: {
+      type: String,
+      
+    },
     description: {
       type: String,
       required: true,

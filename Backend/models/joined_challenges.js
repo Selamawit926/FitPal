@@ -15,6 +15,10 @@ const joinedChallengesSchema = new schema(
       required: true,
       ref: "user"
     },
+    isActive: {
+      type: Boolean,
+      default: true
+    },
   },
 );
 

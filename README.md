@@ -2,6 +2,11 @@
 ## Backend for FitPal
 This repository contains the backend code for the Fitness app. The app uses NodeJS and MongoDB for the server-side and database, respectively.
 
+Technologies Used
+Node.js
+Express
+MongoDB
+
 Installation
 1. Clone the repository
 ```
@@ -11,7 +16,7 @@ https://github.com/Selamawit926/FitPal.git
 2. Install the dependencies
 
 ```
-npm install
+npm install 
 ```
 3. Start the app
 ```

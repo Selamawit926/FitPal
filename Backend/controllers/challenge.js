@@ -7,12 +7,12 @@ exports.addChallenge = (req, res) => {
     new Challenge({
         title: req.body.title,
         userID: req.params.id,
-        duration: req.params.duration,
+        duration: req.body.duration,
         exercise_id: req.body.exercise_id,
         exercise_name: req.body.exercise_name,
         intensity: req.body.intensity,
-        startTime: req.params.startTime,
-        endTime: req.params.endTime,
+        startTime: req.body.startTime,
+        endTime: req.body.endTime,
         image: req.body.image,
         completedUsers: req.body.completedUsers,
         description: req.body.description

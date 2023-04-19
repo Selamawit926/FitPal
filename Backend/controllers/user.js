@@ -2,6 +2,7 @@
 const User = require("../models/user");
 const JoinedChallenges = require("../models/joined_challenges");
 const Challenge = require("./challenge");
+const caloriesBurnt = require("calories-burnt");
 
 exports.getUsers = (req, res, next) => {
     User
@@ -146,5 +147,42 @@ exports.completedChallenge =  (req, res) => {
                 data: {challenge}
             });
         })
+}
+
+exports.calculateCalories = (req,res)=>{
+    userID = req.body.userID;
+    challengeID = req.body.challengeID;
+    const user = User.findById(userID);
+    const exerciseName = req.body.exerciseName;
+    const durationInMinutes = req.body.durationInMinutes;
+    const intensityLevel = req.body.intensityLevel;
+    const userWeightInPounds = user.weight;
+
+    const caloriesBurned =  caloriesBurnt(exerciseName, durationInMinutes, intensityLevel, userWeightInPounds);
+
+    JoinedChallenges
+        .findOneAndUpdate({
+            userID:userID,
+            challengeID: challengeID
+            },
+            {
+                calories_burnt : caloriesBurned
+            }
+        ).then((challenge) => {
+            if (!challenge) {
+                return res.status(404).send({
+                    message: `Couldn't update challenge`
+                });
+            }
+            else {
+                return res.status(200).send(challenge);
+            }
+    
+        }).catch((err) => {
+            return res.status(500).send({
+                message: `Error updating `
+            })
+        })
+        
 }
     

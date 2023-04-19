@@ -19,7 +19,10 @@ const joinedChallengesSchema = new schema(
       type: Boolean,
       default: true
     },
-    
+    calories_burnt: {
+      type:Number,
+      required:false
+    }
   },
   {
     writeConcern: {

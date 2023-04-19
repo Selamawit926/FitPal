@@ -32,7 +32,7 @@ const challengeSchema = new schema(
     },
     duration: {
       type: Number,
-      required: true,
+      required: false,
     },
     startTime: {
       type: Date,
@@ -46,6 +46,10 @@ const challengeSchema = new schema(
       type: Number,
       required: false,
       default: 0
+    },
+    repetition:{
+      type:Number,
+      required:true
     }
   },
 );
